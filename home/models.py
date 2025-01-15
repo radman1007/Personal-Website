@@ -24,6 +24,7 @@ class Project(models.Model):
     body = models.TextField()
     category = models.ManyToManyField(ProjectCategory, related_name='category')
     customer = models.CharField(max_length=100, null=True, blank=True)
+    link =  models.CharField(max_length=250)
     
     def __str__(self):
         return self.title
