@@ -1,6 +1,16 @@
 from django.db import models
 
 
+class Service(models.Model):
+    image = models.ImageField()
+    title = models.CharField(max_length=100)
+    body = models.TextField()
+    number = models.CharField(max_length=3)
+    
+    def __str__(self):
+        return self.title
+
+
 class ProjectCategory(models.Model):
     name = models.CharField(max_length=100)
 
@@ -17,3 +27,21 @@ class Project(models.Model):
     
     def __str__(self):
         return self.title
+
+
+class Work(models.Model):
+    title = models.CharField(max_length=250)
+    time = models.CharField(max_length=250)
+    loc = models.CharField(max_length=250)
+    
+    def __str__(self):
+        return self.title
+   
+
+class Skill(models.Model):
+    image = models.ImageField()
+    name = models.CharField(max_length=100)
+    percentage = models.PositiveIntegerField()
+    
+    def __str__(self):
+        return self.name
