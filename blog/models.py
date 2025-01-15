@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class BlogCategory(models.Model):
@@ -16,6 +17,9 @@ class Blog(models.Model):
     category = models.ManyToManyField(BlogCategory, related_name='category')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    
+    def get_absolute_url(self):
+        return reverse("blog_detail", args={self.id})
     
     def __str__(self):
         return self.title

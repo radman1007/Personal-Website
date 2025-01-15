@@ -852,31 +852,33 @@
              </div>
           </div>
           <div class="row">
-             <div class="col-lg-4 col-md-6">
-                <div class="blog-item wow fadeInUp" data-wow-delay=".5s">
-                   <div class="blog-thumb">
-                      <a href="blog-details.html">
-                         <img src="{% static "assets/img/blog/1.jpg" %}" alt="">
-                      </a>
-                      <a href="#" class="category">آموزشی</a>
-                   </div>
+            {% for blog in blogs %}
+            <div class="col-lg-4 col-md-6">
+               <div class="blog-item wow fadeInUp" data-wow-delay=".5s">
+                  <div class="blog-thumb">
+                     <a href="url">
+                        <img src="{{ blog.image.url }}" alt="">
+                     </a>
+                     <a href="#" class="category">آموزشی</a>
+                  </div>
 
-                   <div class="blog-content">
-                      <div class="blog-meta">
-                         <ul class="ul-reset">
-                            <li><i class="fa-light fa-calendar-days"></i>تیرماه ، 1396
-                            </li>
-                            <li><i class="fa-light fa-comments"></i> <a href="#">نظرات (0)</a></li>
-                         </ul>
-                      </div>
-                      <h3 class="blog-title"><a href="blog-details.html">10 طراح برتر رابط کاربری Ux</a></h3>
-                   </div>
-                </div>
-             </div>
+                  <div class="blog-content">
+                     <div class="blog-meta">
+                        <ul class="ul-reset">
+                           <li><i class="fa-light fa-calendar-days"></i>{{ blog.created }}
+                           </li>
+                           <li><i class="fa-light fa-comments"></i> <a href="#">نظرات (0)</a></li>
+                        </ul>
+                     </div>
+                     <h3 class="blog-title"><a href="blog-details.html">{{ blog.title }}</a></h3>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
              <div class="col-lg-4 col-md-6">
                 <div class="blog-item wow fadeInUp" data-wow-delay=".6s">
                    <div class="blog-thumb">
-                      <a href="">
+                      <a href="blog-detail.html">
                          <img src="{% static "assets/img/blog/2.jpg" %}" alt="">
                       </a>
                       <a href="#" class="category">نکات کلیدی</a>
@@ -892,7 +894,7 @@
                    </div>
                 </div>
              </div>
-             <div class="col-lg-4 col-md-6">
+             {% comment %} <div class="col-lg-4 col-md-6">
                 <div class="blog-item wow fadeInUp" data-wow-delay=".7s">
                    <div class="blog-thumb">
                       <a href="blog-details.html">
@@ -910,7 +912,7 @@
                       <h3 class="blog-title"><a href="blog-details.html">آموزش طراحی گرافیک رایگان</a></h3>
                    </div>
                 </div>
-             </div>
+             </div> {% endcomment %}
           </div>
        </div>
     </section>
