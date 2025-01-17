@@ -100,20 +100,21 @@
              <div class="col-md-12">
                 <div class="services-widget position-relative">
                   {% comment %} class name for active item : current {% endcomment %}
-                   {% for service in services %}{% endfor %}
+                   {% for service in services %}
                    <div class="service-item d-flex flex-wrap align-items-center wow fadeInUp" data-wow-delay=".5s">
                       <div class="left-box d-flex flex-wrap align-items-center">
-                         <span class="number">01</span>
-                         <h3 class="service-title">طراحی برندینگ</h3>
+                         <span class="number">{{ service.number }}</span>
+                         <h3 class="service-title">{{ service.title }}</h3>
                       </div>
                       <div class="right-box">
                          <p>
-                            من مشکلات پیچیده کاربران در زمینه طراحی و برنامه نویسی را با توجه به سابقه کاریی که دارم به راحتی برطرف میکنم
+                           {{ service.body }}
                          </p>
                       </div>
                       <i class="flaticon-up-right-arrow"></i>
                       <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
                    </div>
+                   {% endfor %}
                    <div class="active-bg wow fadeInUp" data-wow-delay=".5s"></div>
                 </div>
              </div>
@@ -123,7 +124,8 @@
     <!-- SERVICES SECTION END -->
 
     <!-- start: Service Popup -->
-    <div id="service-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide">
+
+    {% comment %} <div id="service-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide">
        <div class="popup_modal_img">
           <img src="{% static "assets/img/services/modal-img.jpg" %}" alt="">
        </div>
@@ -236,7 +238,9 @@
              </div>
           </div>
        </div>
-    </div>
+
+    </div> {% endcomment %}
+
     <!-- end: Service Popup -->
 
     <!-- PORTFOLIO SECTION START -->
@@ -258,9 +262,9 @@
                 <div class="portfolio-filter text-center wow fadeInUp" data-wow-delay=".5s">
                    <div class="button-group filter-button-group">
                       <button data-filter="*" class="active">همه</button>
-                      <button data-filter=".uxui">UX/UI</button>
-                      <button data-filter=".branding">برندینگ</button>
-                      <button data-filter=".mobile-app">اپیکیشن</button>
+                      {% for project_category in project_categories %}
+                      <button data-filter="{{ project_category.name }}">{{ project_category.name }}</button>
+                      {% endfor %}
                       <div class="active-bg"></div>
                    </div>
                 </div>
@@ -268,50 +272,19 @@
                 <div class="portfolio-box wow fadeInUp" data-wow-delay=".6s">
                    <div class="portfolio-sizer"></div>
                    <div class="gutter-sizer"></div>
+                   {% for project in projects %}
                    <div class="portfolio-item branding">
                       <div class="image-box">
-                         <img src="{% static "assets/img/portfolio/2.jpg" %}" alt="">
+                         <img src="{{ project.image.url }}" alt="">
                       </div>
                       <div class="content-box">
-                         <h3 class="portfolio-title">دیلویت</h3>
-                         <p>پروژه ای در مورد دقت و اطلاعات بالا بود.</p>
+                         <h3 class="portfolio-title">{{ project.title }}</h3>
+                         <p>{{ project.body|truncatechars:100 }}</p>
                          <i class="flaticon-up-right-arrow"></i>
                          <button data-mfp-src="#portfolio-wrapper" class="portfolio-link modal-popup"></button>
                       </div>
                    </div>
-                   <div class="portfolio-item uxui">
-                      <div class="image-box">
-                         <img src="{% static "assets/img/portfolio/1.jpg" %}" alt="">
-                      </div>
-                      <div class="content-box">
-                         <h3 class="portfolio-title">عصر جدید</h3>
-                         <p>پروژه ای در مورد دقت و اطلاعات بالا بود.</p>
-                         <i class="flaticon-up-right-arrow"></i>
-                         <button data-mfp-src="#portfolio-wrapper" class="portfolio-link modal-popup"></button>
-                      </div>
-                   </div>
-                   <div class="portfolio-item mobile-app">
-                      <div class="image-box">
-                         <img src="{% static "assets/img/portfolio/3.jpg" %}" alt="">
-                      </div>
-                      <div class="content-box">
-                         <h3 class="portfolio-title">سباستین</h3>
-                         <p>پروژه ای در مورد دقت و اطلاعات بالا بود.</p>
-                         <i class="flaticon-up-right-arrow"></i>
-                         <button data-mfp-src="#portfolio-wrapper" class="portfolio-link modal-popup"></button>
-                      </div>
-                   </div>
-                   <div class="portfolio-item branding">
-                      <div class="image-box">
-                         <img src="{% static "assets/img/portfolio/4.jpg" %}" alt="">
-                      </div>
-                      <div class="content-box">
-                         <h3 class="portfolio-title">موچینکس</h3>
-                         <p>پروژه ای در مورد دقت و اطلاعات بالا بود.</p>
-                         <i class="flaticon-up-right-arrow"></i>
-                         <button data-mfp-src="#portfolio-wrapper" class="portfolio-link modal-popup"></button>
-                      </div>
-                   </div>
+                   {% endfor %}
                 </div>
              </div>
           </div>
@@ -320,7 +293,8 @@
     <!-- PORTFOLIO SECTION END -->
 
     <!-- start: Portfolio Popup -->
-    <div id="portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide">
+
+    {% comment %} <div id="portfolio-wrapper" class="popup_content_area zoom-anim-dialog mfp-hide">
        <div class="popup_modal_img">
           <img src="{% static "assets/img/portfolio/modal-img.jpg" %}" alt="">
        </div>
@@ -431,7 +405,8 @@
              </div>
           </div>
        </div>
-    </div>
+    </div> {% endcomment %}
+
     <!-- end: Portfolio Popup -->
 
     <!-- RESUME SECTION START -->
@@ -444,26 +419,13 @@
                 </div>
 
                 <div class="resume-widget">
-                   <div class="resume-item wow fadeInLeft" data-wow-delay=".4s">
-                      <div class="time">2022 - حضور در</div>
-                      <h3 class="resume-title">توسعه دهنده اصلی</h3>
-                      <div class="institute">بروکلی، لندن</div>
-                   </div>
-                   <div class="resume-item wow fadeInLeft" data-wow-delay=".5s">
-                      <div class="time">2021 - 2022</div>
-                      <h3 class="resume-title">فول استک وب دولوپر</h3>
-                      <div class="institute">تهران, گیشای غربی</div>
-                   </div>
-                   <div class="resume-item wow fadeInLeft" data-wow-delay=".6s">
-                      <div class="time">2020 - 2021</div>
-                      <h3 class="resume-title"> طراحی UI </h3>
-                      <div class="institute">خانه رویایی, وین</div>
-                   </div>
-                   <div class="resume-item wow fadeInLeft" data-wow-delay=".7s">
-                      <div class="time">2018 - 2020</div>
-                      <h3 class="resume-title">طراحی گرافیکی</h3>
-                      <div class="institute">ادویسل, واشنگتن</div>
-                   </div>
+                  {% for work in works %}
+                  <div class="resume-item wow fadeInLeft" data-wow-delay=".4s">
+                     <div class="time">{{ work.time }}</div>
+                     <h3 class="resume-title">{{ work.title }}</h3>
+                     <div class="institute">{{ work.loc }}</div>
+                  </div>
+                  {% endfor %}
                 </div>
              </div>
 
@@ -509,7 +471,6 @@
                    <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">مهارت ها</h2>
                    <p class="wow fadeInUp" data-wow-delay=".4s">
                       ما ایده های شما و در نتیجه خواسته های شما را در قالب یک پروژه وب منحصر به فرد قرار می دهیم که الهام بخش شما و مشتریان شما باشد.
-
                    </p>
                 </div>
              </div>
@@ -518,60 +479,17 @@
           <div class="row">
              <div class="col-md-12">
                 <div class="skills-widget d-flex flex-wrap justify-content-center align-items-center">
-                   <div class="skill-item wow fadeInUp" data-wow-delay=".3s">
-                      <div class="skill-inner">
-                         <div class="icon-box">
-                            <img src="{% static "assets/img/icons/figma.svg" %}" alt="">
-                         </div>
-                         <div class="number">92%</div>
-                      </div>
-                      <p>فیگما</p>
-                   </div>
-                   <div class="skill-item wow fadeInUp" data-wow-delay=".4s">
-                      <div class="skill-inner">
-                         <div class="icon-box">
-                            <img src="{% static "assets/img/icons/sketch.svg" %}" alt="">
-                         </div>
-                         <div class="number">80%</div>
-                      </div>
-                      <p>Sketch</p>
-                   </div>
-                   <div class="skill-item wow fadeInUp" data-wow-delay=".5s">
-                      <div class="skill-inner">
-                         <div class="icon-box">
-                            <img src="{% static "assets/img/icons/xd.svg" %}" alt="">
-                         </div>
-                         <div class="number">85%</div>
-                      </div>
-                      <p>XD</p>
-                   </div>
-                   <div class="skill-item wow fadeInUp" data-wow-delay=".6s">
-                      <div class="skill-inner">
-                         <div class="icon-box">
-                            <img src="{% static "assets/img/icons/wp.svg" %}" alt="">
-                         </div>
-                         <div class="number">99%</div>
-                      </div>
-                      <p>وردپرس</p>
-                   </div>
-                   <div class="skill-item wow fadeInUp" data-wow-delay=".7s">
-                      <div class="skill-inner">
-                         <div class="icon-box">
-                            <img src="{% static "assets/img/icons/react.svg" %}" alt="">
-                         </div>
-                         <div class="number">89%</div>
-                      </div>
-                      <p>ری اکت</p>
-                   </div>
-                   <div class="skill-item wow fadeInUp" data-wow-delay=".8s">
-                      <div class="skill-inner">
-                         <div class="icon-box">
-                            <img src="{% static "assets/img/icons/js.svg" %}" alt="">
-                         </div>
-                         <div class="number">93%</div>
-                      </div>
-                      <p>جاوا اسکریپت</p>
-                   </div>
+                  {% for skill in skills %}
+                  <div class="skill-item wow fadeInUp" data-wow-delay=".3s">
+                     <div class="skill-inner">
+                        <div class="icon-box">
+                           <img src="{{ skill.image.url }}" alt="">
+                        </div>
+                        <div class="number">{{ skill.percentage }}%</div>
+                     </div>
+                     <p>{{ skill.name }}</p>
+                  </div>
+                  {% endfor %}
                 </div>
              </div>
           </div>
@@ -819,7 +737,9 @@
                      <a href="{% url "blog.get_absolute_url" %}">
                         <img src="{{ blog.image.url }}" alt="">
                      </a>
-                     <a href="#" class="category">آموزشی</a>
+                     {% for category in blog.category %}
+                     <a href="#" class="category">{{ category.name }}</a>
+                     {% endfor %}
                   </div>
 
                   <div class="blog-content">
@@ -835,44 +755,6 @@
                </div>
             </div>
             {% endfor %}
-             <div class="col-lg-4 col-md-6">
-                <div class="blog-item wow fadeInUp" data-wow-delay=".6s">
-                   <div class="blog-thumb">
-                      <a href="blog-detail.html">
-                         <img src="{% static "assets/img/blog/2.jpg" %}" alt="">
-                      </a>
-                      <a href="#" class="category">نکات کلیدی</a>
-                   </div>
-                   <div class="blog-content">
-                      <div class="blog-meta">
-                         <ul class="ul-reset">
-                            <li><i class="fa-light fa-calendar-days"></i> آبان ماه ، 1400</li>
-                            <li><i class="fa-light fa-comments"></i> <a href="#">نظرات (0)</a></li>
-                         </ul>
-                      </div>
-                      <h3 class="blog-title"><a href="blog-details.html">راهنمای توسعه اپلیکیشن</a></h3>
-                   </div>
-                </div>
-             </div>
-             {% comment %} <div class="col-lg-4 col-md-6">
-                <div class="blog-item wow fadeInUp" data-wow-delay=".7s">
-                   <div class="blog-thumb">
-                      <a href="blog-details.html">
-                         <img src="{% static "assets/img/blog/3.jpg" %}" alt="">
-                      </a>
-                      <a href="#" class="category">طراحی</a>
-                   </div>
-                   <div class="blog-content">
-                      <div class="blog-meta">
-                         <ul class="ul-reset">
-                            <li><i class="fa-light fa-calendar-days"></i> فروردین ماه ، 1392</li>
-                            <li><i class="fa-light fa-comments"></i> <a href="#">نظرات (0)</a></li>
-                         </ul>
-                      </div>
-                      <h3 class="blog-title"><a href="blog-details.html">آموزش طراحی گرافیک رایگان</a></h3>
-                   </div>
-                </div>
-             </div> {% endcomment %}
           </div>
        </div>
     </section>
