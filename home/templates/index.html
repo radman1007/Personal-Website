@@ -14,7 +14,7 @@
           <div class="row align-items-center">
              <div class="col-md-6">
                 <div class="hero-content-box">
-                   <span class="hero-sub-title">من جرولد هستم
+                   <span class="hero-sub-title">من رادمان هستم
                    </span>
                    <h1 class="hero-title">برنامه نویس و
                       <br>
@@ -31,16 +31,13 @@
                       <a href="#" class="btn tj-btn-secondary">دریافت رزومه <i class="flaticon-download"></i></a>
                       <ul class="ul-reset social-icons">
                          <li>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/_radman7/"><i class="fa-brands fa-instagram"></i></a>
                          </li>
                          <li>
-                            <a href="#"><i class="fa-light fa-basketball"></i></a>
+                            <a href="https://www.linkedin.com/in/radman-montazer"><i class="fa-brands fa-linkedin-in"></i></a>
                          </li>
                          <li>
-                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                         </li>
-                         <li>
-                            <a href="#"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://github.com/radman1007"><i class="fa-brands fa-github"></i></a>
                          </li>
                       </ul>
                    </div>
@@ -102,49 +99,12 @@
           <div class="row">
              <div class="col-md-12">
                 <div class="services-widget position-relative">
-                   <div class="service-item current d-flex flex-wrap align-items-center wow fadeInUp" data-wow-delay=".5s">
+                  {% comment %} class name for active item : current {% endcomment %}
+                   {% for service in services %}{% endfor %}
+                   <div class="service-item d-flex flex-wrap align-items-center wow fadeInUp" data-wow-delay=".5s">
                       <div class="left-box d-flex flex-wrap align-items-center">
                          <span class="number">01</span>
                          <h3 class="service-title">طراحی برندینگ</h3>
-                      </div>
-                      <div class="right-box">
-                         <p>
-                            من مشکلات پیچیده کاربران در زمینه طراحی و برنامه نویسی را با توجه به سابقه کاریی که دارم به راحتی برطرف میکنم
-                         </p>
-                      </div>
-                      <i class="flaticon-up-right-arrow"></i>
-                      <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
-                   </div>
-                   <div class="service-item d-flex flex-wrap align-items-center wow fadeInUp" data-wow-delay=".6s">
-                      <div class="left-box d-flex flex-wrap align-items-center">
-                         <span class="number">02</span>
-                         <h3 class="service-title">طراحی سایت</h3>
-                      </div>
-                      <div class="right-box">
-                         <p>
-                            من مشکلات پیچیده کاربران در زمینه طراحی و برنامه نویسی را با توجه به سابقه کاریی که دارم به راحتی برطرف میکنم
-                         </p>
-                      </div>
-                      <i class="flaticon-up-right-arrow"></i>
-                      <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
-                   </div>
-                   <div class="service-item d-flex flex-wrap align-items-center wow fadeInUp" data-wow-delay=".7s">
-                      <div class="left-box d-flex flex-wrap align-items-center">
-                         <span class="number">03</span>
-                         <h3 class="service-title"> طراحی UI/UX</h3>
-                      </div>
-                      <div class="right-box">
-                         <p>
-                            من مشکلات پیچیده کاربران در زمینه طراحی و برنامه نویسی را با توجه به سابقه کاریی که دارم به راحتی برطرف میکنم
-                         </p>
-                      </div>
-                      <i class="flaticon-up-right-arrow"></i>
-                      <button data-mfp-src="#service-wrapper" class="service-link modal-popup"></button>
-                   </div>
-                   <div class="service-item d-flex flex-wrap align-items-center wow fadeInUp" data-wow-delay=".8s">
-                      <div class="left-box d-flex flex-wrap align-items-center">
-                         <span class="number">04</span>
-                         <h3 class="service-title">طراح گرافیک</h3>
                       </div>
                       <div class="right-box">
                          <p>
@@ -856,7 +816,7 @@
             <div class="col-lg-4 col-md-6">
                <div class="blog-item wow fadeInUp" data-wow-delay=".5s">
                   <div class="blog-thumb">
-                     <a href="url">
+                     <a href="{% url "blog.get_absolute_url" %}">
                         <img src="{{ blog.image.url }}" alt="">
                      </a>
                      <a href="#" class="category">آموزشی</a>
