@@ -57,6 +57,17 @@ class Skill(models.Model):
         return self.name
 
 
+class Story(models.Model):
+    image = models.ImageField()
+    logo = models.ImageField()
+    body = models.TextField()
+    name = models.CharField(max_length=100)
+    job = models.CharField(max_length=250)
+    
+    def __str__(self):
+        return self.name
+
+
 class Contact(models.Model):
     f_name = models.CharField(max_length=100)
     l_name = models.CharField(max_length=100)
@@ -69,4 +80,3 @@ class Contact(models.Model):
     
     def __str__(self):
         return f"{self.f_name} {self.l_name} : {self.service}"
-    

@@ -18,14 +18,14 @@
                    </span>
                    <h1 class="hero-title">برنامه نویس و
                       <br>
-                      طراح UX</h1>
+                     عاشق دنیای تکنولوژی</h1>
 
                    <div class="hero-image-box d-md-none text-center">
                       <img src="{% static "assets/img/hero/me.png" %}" alt="">
                    </div>
 
                    <p class="lead">
-                      من مشکلات پیچیده کاربران در زمینه طراحی و برنامه نویسی را با توجه به سابقه کاریی که دارم به راحتی برطرف میکنم
+                      من مشکلات پیچیده شما را در زمینه برنامه نویسی به راحتی برطرف میکنم و آماده قبول کردن پروژه های شما و درخواست همکاری شما هستم.
                    </p>
                    <div class="button-box d-flex flex-wrap align-items-center">
                       <a href="#" class="btn tj-btn-secondary">دریافت رزومه <i class="flaticon-download"></i></a>
@@ -251,7 +251,7 @@
                 <div class="section-header text-center">
                    <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">پروژه های اخیر</h2>
                    <p class="wow fadeInUp" data-wow-delay=".4s">
-                      ما ایده های شما و در نتیجه خواسته های شما را در قالب یک پروژه وب منحصر به فرد قرار می دهیم که الهام بخش شما و  مشتریان شما باشد.
+                     اگر بازم به توانایی من شک دارید میتونید نمونه کار های منو ببینید و با خیال راحت به من اطمینان کنید.
                    </p>
                 </div>
              </div>
@@ -262,6 +262,9 @@
                 <div class="portfolio-filter text-center wow fadeInUp" data-wow-delay=".5s">
                    <div class="button-group filter-button-group">
                       <button data-filter="*" class="active">همه</button>
+                     {% for service in services %}
+                     <button data-filter="{{ service.title }}">{{ service.title }}</button>
+                     {% endfor %}
                       {% for project_category in project_categories %}
                       <button data-filter="{{ project_category.name }}">{{ project_category.name }}</button>
                       {% endfor %}
@@ -457,7 +460,7 @@
                 <div class="section-header text-center">
                    <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">مهارت ها</h2>
                    <p class="wow fadeInUp" data-wow-delay=".4s">
-                      ما ایده های شما و در نتیجه خواسته های شما را در قالب یک پروژه وب منحصر به فرد قرار می دهیم که الهام بخش شما و مشتریان شما باشد.
+                     در تلاشم که روز به روز مهارت هام رو افزایش بدم و به دنبال پیشرفت بیشتر باشم.
                    </p>
                 </div>
              </div>
@@ -816,7 +819,7 @@
                          </div>
                          <div class="text-box">
                             <p>شماره تماس</p>
-                            <a href="tel:0123456789">+01 123 654 8096</a>
+                            <a href="tel:09374646412">09374646412</a>
                          </div>
                       </li>
                       <li class="d-flex flex-wrap align-items-center position-relative wow fadeInRight" data-wow-delay=".5s">
