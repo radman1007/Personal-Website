@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}جزي{% endblock title %}
-{% block title %}وبلاگ{% endblock title %}
+{% block title %}جزئیات وبلاگ{% endblock title %}
 {% block body %}
 <main class="site-content" id="content">
     <!-- START: Breadcrumb Area -->
@@ -12,7 +11,7 @@
                 <div class="breadcrumb_content d-flex flex-column align-items-center">
                    <h2 class="title wow fadeInUp" data-wow-delay=".3s">جزئیات وبلاگ</h2>
                    <div class="breadcrumb_navigation wow fadeInUp" data-wow-delay=".5s">
-                      <span><a href="index.html">خانه</a></span>
+                      <span><a href="{% url "home" %}">خانه</a></span>
                       <i class="far fa-long-arrow-left"></i>
                       <span class="current-item">جزئیات وبلاگ</span>
                    </div>
@@ -31,31 +30,24 @@
                 <div class="tj-post-details__container">
                    <article class="tj-single__post">
                       <div class="tj-post__thumb">
-                         <img src="assets/img/blog/blog-4.jpg" alt="">
+                         <img src="{{ blog.image.url }}" alt="">
 
-                         <a href="#" class="category">آموزشی</a>
+                         {% for category in blog.category.all %}
+                         <a href="" class="category">{{ category.name }}</a>
+                         {% endfor %}
                       </div>
 
                       <div class="tj-post__content">
                          <div class="tj-post__meta entry-meta">
-                            <span><i class="fa-light fa-user"></i> <a href="#">توسط ادمین</a></span>
-                            <span><i class="fa-light fa-calendar-days"></i> آبان ماه ، 1400</span>
+                            <span><i class="fa-light fa-user"></i> <a href="#">توسط : {{ blog.author }}</a></span>
+                            <span><i class="fa-light fa-calendar-days"></i>{{ blog.created }}</span>
                             <span><i class="fa-light fa-comments"></i><a href="#">نظرات (3)</a></span>
                          </div>
-                         <h3 class="tj-post__title entry-title">نقش فناوری در مدیریت لجستیک مدرن
-                         </h3>
+                         <h3 class="tj-post__title entry-title">{{ blog.title }}</h3>
 
                          <div class="tj-post__content">
                             <p>
-                               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
-                            </p>
-
-                            <p>
-                               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                            </p>
-
-                            <p>
-                               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
+                              {{ blog.body }}
                             </p>
 
                             <blockquote class="wp-block-quote">

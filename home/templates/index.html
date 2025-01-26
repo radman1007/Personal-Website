@@ -721,10 +721,10 @@
             <div class="col-lg-4 col-md-6">
                <div class="blog-item wow fadeInUp" data-wow-delay=".5s">
                   <div class="blog-thumb">
-                     <a href="{% url "blog.get_absolute_url" %}">
+                     <a href="{{ blog.get_absolute_url }}">
                         <img src="{{ blog.image.url }}" alt="">
                      </a>
-                     {% for category in blog.category %}
+                     {% for category in blog.category.all %}
                      <a href="#" class="category">{{ category.name }}</a>
                      {% endfor %}
                   </div>
@@ -737,7 +737,7 @@
                            <li><i class="fa-light fa-comments"></i> <a href="#">نظرات (0)</a></li>
                         </ul>
                      </div>
-                     <h3 class="blog-title"><a href="blog-details.html">{{ blog.title }}</a></h3>
+                     <h3 class="blog-title"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
                   </div>
                </div>
             </div>
