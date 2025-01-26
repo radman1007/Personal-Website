@@ -37,7 +37,16 @@ class Work(models.Model):
     
     def __str__(self):
         return self.title
-   
+
+
+class Education(models.Model):
+    title = models.CharField(max_length=250)
+    time = models.CharField(max_length=250)
+    loc = models.CharField(max_length=250)
+    
+    def __str__(self):
+        return self.title
+
 
 class Skill(models.Model):
     image = models.ImageField()
@@ -46,3 +55,18 @@ class Skill(models.Model):
     
     def __str__(self):
         return self.name
+
+
+class Contact(models.Model):
+    f_name = models.CharField(max_length=100)
+    l_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=12)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    text = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return f"{self.f_name} {self.l_name} : {self.service}"
+    
