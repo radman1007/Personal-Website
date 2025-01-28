@@ -9,6 +9,7 @@ def home(request):
     works = Work.objects.all()
     educations = Education.objects.all()
     skills = Skill.objects.all()
+    stories = Story.objects.all()
     blogs = Blog.objects.all()
     if request.method == "POST":
         contact = Contact(request.POST)
@@ -21,6 +22,7 @@ def home(request):
         'works' : works,
         'educations' : educations,
         'skills' : skills,
+        'stories' : stories,
         'blogs' : blogs,
     }
     return render(request, 'index.html', context)
