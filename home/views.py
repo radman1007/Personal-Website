@@ -9,6 +9,7 @@ def home(request):
     works = Work.objects.all()
     educations = Education.objects.all()
     skills = Skill.objects.all()
+    customer = Contact.objects.all()
     blogs = Blog.objects.all()
     if request.method == "POST":
         contact = Contact(request.POST)

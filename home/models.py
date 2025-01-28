@@ -75,6 +75,7 @@ class Contact(models.Model):
     phone = models.CharField(max_length=12)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     text = models.TextField()
+    published = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
