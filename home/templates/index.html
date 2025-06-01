@@ -21,7 +21,7 @@
                      عاشق دنیای تکنولوژی</h1>
 
                    <div class="hero-image-box d-md-none text-center">
-                      <img src="{% static "assets/img/hero/me.png" %}" alt="">
+                      <img src="{% static "assets/img/my_pic/IMG_6910.jpg" %}" alt="" class="image-mobile-size">
                    </div>
 
                    <p class="lead">
@@ -31,13 +31,13 @@
                       <a href="#" class="btn tj-btn-secondary">دریافت رزومه <i class="flaticon-download"></i></a>
                       <ul class="ul-reset social-icons">
                          <li>
-                            <a href="https://www.instagram.com/_radman7/"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/_radman7/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                          </li>
                          <li>
-                            <a href="https://www.linkedin.com/in/radman-montazer"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.linkedin.com/in/radman-montazer" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
                          </li>
                          <li>
-                            <a href="https://github.com/radman1007"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://github.com/radman1007" target="_blank"><i class="fa-brands fa-github"></i></a>
                          </li>
                       </ul>
                    </div>
@@ -45,7 +45,7 @@
              </div>
              <div class="col-md-6 d-none d-md-block">
                 <div class="hero-image-box text-center">
-                   <img src="{% static "assets/img/hero/me.png" %}" alt="">
+                   <img src="{% static "assets/img/my_pic/IMG_6910.jpg" %}" alt="" class="image-computer-size">
                 </div>
              </div>
           </div>
@@ -53,25 +53,25 @@
              <div class="row">
                 <div class="col-6 col-lg-3">
                    <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                      <div class="number"><span class="odometer" data-count="14">0</span></div>
+                      <div class="number"><span class="odometer" data-count="{{ careerstats.work_history }}">0</span></div>
                       <div class="text">سابقه <br>کاری</div>
                    </div>
                 </div>
                 <div class="col-6 col-lg-3">
                    <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                      <div class="number"><span class="odometer" data-count="50">0</span>+</div>
+                      <div class="number"><span class="odometer" data-count="{{ careerstats.completed_projects }}">0</span>+</div>
                       <div class="text">پروژه های <br>تکمیل شده</div>
                    </div>
                 </div>
                 <div class="col-6 col-lg-3">
                    <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                      <div class="number"><span class="odometer" data-count="1.5">0</span>K</div>
+                      <div class="number"><span class="odometer" data-count="{{ careerstats.satisfaction_rate }}">0</span>K</div>
                       <div class="text">میزان <br>رضایت</div>
                    </div>
                 </div>
                 <div class="col-6 col-lg-3">
                    <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                      <div class="number"><span class="odometer" data-count="14">0</span></div>
+                      <div class="number"><span class="odometer" data-count="{{ careerstats.years_os_experience }}">0</span></div>
                       <div class="text">سال های <br>تجربیات</div>
                    </div>
                 </div>

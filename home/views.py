@@ -3,6 +3,7 @@ from .models import *
 from blog.models import Blog
 
 def home(request):
+    careerstats = CareerStat.objects.all().last()
     services = Service.objects.all()
     project_categories = ProjectCategory.objects.all()
     projects = Project.objects.all()
@@ -16,6 +17,7 @@ def home(request):
         if contact.is_valid():
             contact.save()
     context = {
+        'careerstats' : careerstats,
         'services' : services,
         'project_categories' : project_categories,
         'projects' : projects,
