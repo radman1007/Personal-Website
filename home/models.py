@@ -1,6 +1,16 @@
 from django.db import models
 
 
+class CareerStat(models.Model):
+    work_history = models.PositiveIntegerField()
+    completed_projects = models.PositiveIntegerField()
+    satisfaction_rate = models.FloatField()
+    years_os_experience = models.PositiveIntegerField()
+    
+    def __str__(self):
+        return "Career Stats"
+
+
 class Service(models.Model):
     image = models.ImageField()
     title = models.CharField(max_length=100)
